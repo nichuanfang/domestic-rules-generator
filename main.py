@@ -4,7 +4,11 @@ import json
 import random
 import string
 
-res_dict = {}
+lines = {}
+# 读取/root/code/domestic-rules-generator/routing.txt文件
+with open('/root/code/domestic-rules-generator/routing.txt', 'r+') as generator_r_f:
+    line = generator_r_f.read()
+    lines[line] = 0
 
 # 过滤出/datasource/access.log文件中包含[block]的行，并将结果写入到/block.log文件中
 def filter_block_to_file():
@@ -15,13 +19,13 @@ def filter_block_to_file():
                     domain = line.split('accepted')[1].split('[block]')[0].strip().split(':')[1]
                     # 如果domain不是ip address
                     if not domain.replace('.', '').isdigit():
-                        res_dict[domain] =  line
+                        lines[domain] =  0
     
             
     # 将res_dist的keys写入routing_body.json的rules中
     with open('/root/code/domestic-rules-generator/routing_template_body.json', 'r+') as f:
         str_json = json.loads(f.read())
-        for key in res_dict.keys():
+        for key in lines.keys():
             # {
             #     "id": "qO1yH8rK5nG6qQ0f",
             #     "type": "field",
@@ -38,6 +42,11 @@ def filter_block_to_file():
                 'outboundTag': 'direct',
                 'domain': [key]
             })
+        # 将res_dict的keys写入routing.txt文件中 增量更新需要用到
+        with open('/root/code/domestic-rules-generator/routing.txt', 'w+') as f:
+            for key in lines.keys():
+                f.write(key + '\n')
+                
         # 将str_json写入到dist/routing_body.json文件中
         with open('/root/code/xray-parser/routing/routing_body.json', 'w+') as f:
             f.write(json.dumps(str_json, indent=4))
