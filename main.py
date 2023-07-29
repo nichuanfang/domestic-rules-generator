@@ -8,7 +8,7 @@ res_dict = {}
 
 # 过滤出/datasource/access.log文件中包含[block]的行，并将结果写入到/block.log文件中
 def filter_block_to_file():
-    with open('datasource/access.log', 'r+') as f:
+    with open('/var/log/xray/access.log', 'r+') as f:
             for line in f:
                 if '[block]' in line:
                     # 获取accepted和[block]之间的域名
@@ -17,10 +17,6 @@ def filter_block_to_file():
                     if not domain.replace('.', '').isdigit():
                         res_dict[domain] =  line
     
-    # 将res_dict的keys写入dist/block.log文件中
-    with open('dist/block.log', 'w+') as f:
-        for key in res_dict.keys():
-            f.write(key + '\n')              
             
     # 将res_dist的keys写入routing_body.json的rules中
     with open('routing_template_body.json', 'r+') as f:
@@ -43,7 +39,7 @@ def filter_block_to_file():
                 'domain': [key]
             })
         # 将str_json写入到dist/routing_body.json文件中
-        with open('dist/routing_body.json', 'w+') as f:
+        with open('/root/code/xray-parser/routing/routing_body.json', 'w+') as f:
             f.write(json.dumps(str_json, indent=4))
             
                     
