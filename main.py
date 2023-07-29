@@ -19,7 +19,7 @@ def filter_block_to_file():
     
             
     # 将res_dist的keys写入routing_body.json的rules中
-    with open('routing_template_body.json', 'r+') as f:
+    with open('/root/code/domestic-rules-generator/routing_template_body.json', 'r+') as f:
         str_json = json.loads(f.read())
         for key in res_dict.keys():
             # {
