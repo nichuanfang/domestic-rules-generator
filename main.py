@@ -9,7 +9,8 @@ lines = {}
 with open('/root/code/domestic-rules-generator/routing.txt', 'r+') as generator_r_f:
     g_lines = generator_r_f.readlines()
     for line in g_lines:
-        lines[line.strip()] = 0
+        if line.strip() != '':
+            lines[line.strip()] = 0
 
 # 过滤出/datasource/access.log文件中包含[block]的行，并将结果写入到/block.log文件中
 def filter_block_to_file():
@@ -20,7 +21,8 @@ def filter_block_to_file():
                     domain = line.split('accepted')[1].split('[block]')[0].strip().split(':')[1]
                     # 如果domain不是ip address
                     if not domain.replace('.', '').isdigit():
-                        lines[domain] =  0
+                        if domain.strip() != '':
+                            lines[domain] =  0
     
             
     # 将res_dist的keys写入routing_body.json的rules中
