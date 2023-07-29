@@ -160,6 +160,3 @@ cython_debug/
 
 datasource/*.py
 !datasource/__init__.py
-
-dist/*.py
-!dist/__init__.py
