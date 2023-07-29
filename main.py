@@ -7,8 +7,9 @@ import string
 lines = {}
 # 读取/root/code/domestic-rules-generator/routing.txt文件
 with open('/root/code/domestic-rules-generator/routing.txt', 'r+') as generator_r_f:
-    line = generator_r_f.read()
-    lines[line] = 0
+    g_lines = generator_r_f.readlines()
+    for line in g_lines:
+        lines[line.strip()] = 0
 
 # 过滤出/datasource/access.log文件中包含[block]的行，并将结果写入到/block.log文件中
 def filter_block_to_file():
