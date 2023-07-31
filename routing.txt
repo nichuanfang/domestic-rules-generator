@@ -56,3 +56,10 @@ www.nat123.com
 hz.5u5u5u5u.com
 widget-log.cn-hangzhou.log.aliyuncs.com
 www.shejibiji.com
+one-second-campaign.cn-hangzhou.log.aliyuncs.com
+oss.aliyuncs.com
+api.bilibili.com
+zsrp.admamax.com
+cn-beijing-data.aliyundrive.net
+zsrp01.admamax.com
+www.v1tx.com
