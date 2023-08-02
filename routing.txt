@@ -11,3 +11,7 @@ lanhu-logger.cn-beijing.log.aliyuncs.com
 lanhu.soboten.com
 sentry.lingkou.xyz
 passport.bilicomic.com
+aliyun-web-tracker.cn-zhangjiakou.log.aliyuncs.com
+aliyun-page.cn-hangzhou.log.aliyuncs.com
+one-second-campaign.cn-hangzhou.log.aliyuncs.com
+monitor.pig4cloud.com
