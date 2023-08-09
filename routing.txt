@@ -93,3 +93,5 @@ geek-fe.cn-beijing.log.aliyuncs.com
 mutou.qklchain.com
 p6-passport.byteacctimg.com
 www.bmabk.com
+mon.snssdk.com
+mcs.snssdk.com
