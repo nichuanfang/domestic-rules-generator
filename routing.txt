@@ -186,3 +186,4 @@ demo.salongweb.com
 cdn.iox7.com
 alanwu.cc
 f1.webshare.mob.com
+static.mysmth.net
