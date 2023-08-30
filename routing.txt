@@ -192,3 +192,14 @@ static.mysmth.net
 www.zuanke8.com
 magimg.zhaihai.com
 note.yeezia.com
+api-c.soboten.com
+xy-cdn.lovestu.com
+thumb10.jfcdns.com
+thumb11.jfcdns.com
+thumb.jfcdns.com
+thumb1.jfcdns.com
+thumb12.jfcdns.com
+thumb2.jfcdns.com
+www.yx12345.com
+www.shejibiji.com
+docs.fss-my.vhostgo.com
