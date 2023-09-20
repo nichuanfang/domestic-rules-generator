@@ -24,11 +24,17 @@ def filter_block_to_file():
                         if domain.strip() != '':
                             lines[domain] =  0
     
+    # 对keys处理
+    new_keys_dict = {}
+    for key in lines.keys():
+        if len(key.split('.'))>2:
+            new_keys_dict[key.split('.',1)[1]] = 1     
             
     # 将res_dist的keys写入routing_body.json的rules中
     with open('/root/code/domestic-rules-generator/routing_template_body.json', 'r+') as f:
         str_json = json.loads(f.read())
-        for key in lines.keys():
+        
+        for new_key in new_keys_dict.keys():
             # {
             #     "id": "qO1yH8rK5nG6qQ0f",
             #     "type": "field",
@@ -43,12 +49,12 @@ def filter_block_to_file():
                 'id': id,
                 'type': 'field',
                 'outboundTag': 'direct',
-                'domain': [key]
+                'domain': [new_key]
             })
         # 将res_dict的keys写入routing.txt文件中 增量更新需要用到
         with open('/root/code/domestic-rules-generator/routing.txt', 'w+') as f:
-            for key in lines.keys():
-                f.write(key + '\n')
+            for new_key in new_keys_dict.keys():
+                f.write(new_key + '\n')
                 
         # 将str_json写入到dist/routing_body.json文件中
         with open('/root/code/xray-parser/routing/routing_body.json', 'w+') as f:
