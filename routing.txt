@@ -207,3 +207,4 @@ static.cdn123.zitidi.com
 st.dl.eccdnx.com
 api.production.link3.cc
 imm.aliyuncs.com
+githubedu.top
