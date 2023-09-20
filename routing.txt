@@ -6,7 +6,6 @@ bcevod.com
 aliyundrive.net
 effirst.com
 aliyuncs.com
-log.aliyuncs.com
 soboten.com
 lingkou.xyz
 bilicomic.com
@@ -158,8 +157,8 @@ idouyinvod.com
 ocar.tv
 faiusr.com
 dttt.net
-ap-east-1.amazonaws.com
-cdn123.zitidi.com
+amazonaws.com
+zitidi.com
 qiyuepan.com
 helingqi.com
 ofweek.com
@@ -168,11 +167,11 @@ upx8.com
 mzstatic.com
 jianke.com
 myssl.com
-dl.eccdnx.com
+eccdnx.com
 jomoxc.com
 aiviy.com
 songqinnet.com
-production.link3.cc
+link3.cc
 lixiang.com
 geely.com
 gridsumdissector.com
@@ -192,6 +191,10 @@ ijkxs.com
 hjdang.com
 sendcloud.net
 ampmake.com
+ap-east-1.amazonaws.com
+cdn123.zitidi.com
+dl.eccdnx.com
+production.link3.cc
 free-lbv3.idouyinvod.com
 s21i.faiusr.com
 s3.ap-east-1.amazonaws.com
@@ -199,3 +202,8 @@ static.cdn123.zitidi.com
 st.dl.eccdnx.com
 api.production.link3.cc
 imm.aliyuncs.com
+linuxrumen.com
+howxm.com
+onethingpcs.com
+a5idc.net
+llanjing.com
