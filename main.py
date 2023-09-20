@@ -14,6 +14,7 @@ with open('/root/code/domestic-rules-generator/routing.txt', 'r+') as generator_
 
 # 过滤出/datasource/access.log文件中包含[block]的行，并将结果写入到/block.log文件中
 def filter_block_to_file():
+    # /var/log/xray/
     with open('/var/log/xray/access.log', 'r+') as f:
             for line in f:
                 if '[block]' in line:
@@ -28,7 +29,9 @@ def filter_block_to_file():
     new_keys_dict = {}
     for key in lines.keys():
         if len(key.split('.'))>2:
-            new_keys_dict[key.split('.',1)[1]] = 1     
+            new_keys_dict[key.split('.',1)[1]] = 1
+        else:
+            new_keys_dict[key] = 1
             
     # 将res_dist的keys写入routing_body.json的rules中
     with open('/root/code/domestic-rules-generator/routing_template_body.json', 'r+') as f:
