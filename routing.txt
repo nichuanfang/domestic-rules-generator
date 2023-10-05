@@ -207,10 +207,6 @@ hez70.com
 qhsetup.com
 jiayin95.com
 21xrx.com
-ap-east-1.amazonaws.com
-cdn123.zitidi.com
-dl.eccdnx.com
-production.link3.cc
 biliapi.com
 djicdn.com
 tvmao.com
