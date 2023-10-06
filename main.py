@@ -41,19 +41,21 @@ def filter_block_to_file():
     new_keys_dict = {}
     for key in lines.keys():
         if len(key.split('.'))>2:
-            logging.info(f'正在检测域名:{key.split(".",1)[1]}是否可用')
             if not check_domain(key.split('.',1)[1]):
                 # 如果域名不可用，则跳过
                 logging.info(f'域名:{key.split(".",1)[1]}不可用，跳过')
                 continue    
             new_keys_dict[key.split('.',1)[1]] = 1
+            logging.info(f'域名:{key.split(".",1)[1]}可用')
         else:
-            logging.info(f'正在检测域名:{key}是否可用')
             if not check_domain(key):
                 # 如果域名不可用，则跳过
                 logging.info(f'域名:{key}不可用，跳过')
                 continue    
             new_keys_dict[key] = 1
+            logging.info(f'域名:{key}可用')
+    
+    logging.info(f'new_keys_dict:{new_keys_dict}')
             
     # 将res_dist的keys写入routing_body.json的rules中
     with open('/root/code/domestic-rules-generator/routing_template_body.json', 'r+') as f:
