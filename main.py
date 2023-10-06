@@ -4,12 +4,23 @@ import json
 import random
 import string
 
+# 检测域名可用性
+def check_domain(domain):
+    import socket
+    try:
+        socket.getaddrinfo(domain, None)
+        return True
+    except socket.gaierror:
+        return False
+
+check_domain('www.baidu.com')
+
 lines = {}
 # 读取/root/code/domestic-rules-generator/routing.txt文件
 with open('/root/code/domestic-rules-generator/routing.txt', 'r+') as generator_r_f:
     g_lines = generator_r_f.readlines()
     for line in g_lines:
-        if line.strip() != '':
+        if line.strip() != '' and check_domain(line.strip()):
             lines[line.strip()] = 0
 
 # 过滤出/datasource/access.log文件中包含[block]的行，并将结果写入到/block.log文件中
