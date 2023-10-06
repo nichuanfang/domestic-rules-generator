@@ -3,17 +3,19 @@
 import json
 import random
 import string
-import socket
 import logging
+import subprocess
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # 检测域名可用性
 def check_domain(domain):
+    # 执行nslookup {域名}
     try:
-        socket.getaddrinfo(domain, None)
+        output = subprocess.check_output(f'nslookup {domain}', shell=True)
+        logging.info(f'output:{output.decode("utf-8")}')
         return True
-    except socket.gaierror:
+    except:
         return False
 
 lines = {}
