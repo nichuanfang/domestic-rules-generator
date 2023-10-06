@@ -3,10 +3,10 @@
 import json
 import random
 import string
+import socket
 
 # 检测域名可用性
 def check_domain(domain):
-    import socket
     try:
         socket.getaddrinfo(domain, None)
         return True
