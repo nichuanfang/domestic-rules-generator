@@ -4,6 +4,9 @@ import json
 import random
 import string
 import socket
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # 检测域名可用性
 def check_domain(domain):
@@ -37,7 +40,10 @@ def filter_block_to_file():
     # 对keys处理
     new_keys_dict = {}
     for key in lines.keys():
+        logging.info(f'正在检测域名:{key}是否可用')
         if not check_domain(key):
+            # 如果域名不可用，则跳过
+            logging.info(f'域名:{key}不可用，跳过')
             continue
         if len(key.split('.'))>2:
             new_keys_dict[key.split('.',1)[1]] = 1
