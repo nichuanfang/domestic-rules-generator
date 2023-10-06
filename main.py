@@ -7,30 +7,6 @@ import logging
 import subprocess
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
-# 检测域名可用性
-def check_domain(domain):
-    # 执行nslookup {域名}
-    try:
-        output = subprocess.check_output(f'nslookup {domain} 8.8.4.4', shell=True)
-        logging.info(f'output:{output.decode("utf-8")}')
-        # 提取出ip address
-        ip_address = output.decode('utf-8').rsplit('Address:',1)[1].strip().split('\n')[0]
-        logging.info(f'ip_address:{ip_address}')
-        # 如果ip address不是ip address，则返回False
-        if ip_address== '8.8.4.4' or  not ip_address.replace('.', '').isdigit():
-            if not domain.startswith('www'):
-                output_ = subprocess.check_output(f'nslookup www.{domain} 8.8.4.4', shell=True)
-                ip_address_ = output_.decode('utf-8').rsplit('Address:',1)[1].strip().split('\n')[0]
-                if ip_address_== '8.8.4.4' or not ip_address_.replace('.', '').isdigit():
-                    return False
-                else:
-                    return True
-            return False
-        else:
-            return True
-    except:
-        return False
     
 lines = {}
 # 读取/root/code/domestic-rules-generator/routing.txt文件
@@ -56,15 +32,10 @@ def filter_block_to_file():
     # 对keys处理
     new_keys_dict = {}
     for key in lines.keys():
-        if not check_domain(key):
-            logging.info(f'域名:{key}不可用，跳过')
-            continue
         if len(key.split('.'))>2:
             new_keys_dict[key.split('.',1)[1]] = 1
-            logging.info(f'域名:{key.split(".",1)[1]}可用')
         else:
             new_keys_dict[key] = 1
-            logging.info(f'域名:{key}可用')
     
     # 将res_dist的keys写入routing_body.json的rules中
     with open('/root/code/domestic-rules-generator/routing_template_body.json', 'r+') as f:
@@ -98,4 +69,4 @@ def filter_block_to_file():
             
                     
 if __name__ == '__main__':
-    filter_block_to_file()                    
+    filter_block_to_file()
