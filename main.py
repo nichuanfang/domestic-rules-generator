@@ -20,9 +20,6 @@ def check_domain(domain):
     except Exception as e:
         logging.error(f'域名:{domain}检测失败，原因:{e}')
         return False
-
-res = check_domain('50bangzh.com')
-logging.info(res)
     
 lines = {}
 # 读取/root/code/domestic-rules-generator/routing.txt文件
@@ -48,6 +45,9 @@ def filter_block_to_file():
     # 对keys处理
     new_keys_dict = {}
     for key in lines.keys():
+        if not check_domain(key):
+            logging.info(f'域名:{key}不可用，已过滤')
+            continue
         if len(key.split('.'))>2:
             new_keys_dict[key.split('.',1)[1]] = 1
         else:
