@@ -7,6 +7,23 @@ import logging
 import subprocess
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# 爬取whois.com的域名信息
+def check_domain(domain):
+    try:
+        # 通过whois.com爬取域名信息
+        whois_info = subprocess.check_output(['whois', domain]).decode('utf-8')
+        # 如果域名信息中有'No match for'，则域名可用
+        if 'No match for' in whois_info:
+            return True
+        else:
+            return False
+    except Exception as e:
+        logging.error(f'域名:{domain}检测失败，原因:{e}')
+        return False
+
+res = check_domain('50bangzh.com')
+logging.info(res)
     
 lines = {}
 # 读取/root/code/domestic-rules-generator/routing.txt文件
