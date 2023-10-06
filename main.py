@@ -45,9 +45,9 @@ def filter_block_to_file():
     # 对keys处理
     new_keys_dict = {}
     for key in lines.keys():
-        if not check_domain(key):
-            logging.info(f'域名:{key}不可用，已过滤')
-            continue
+        # if not check_domain(key):
+        #     logging.info(f'域名:{key}不可用，已过滤')
+        #     continue
         if len(key.split('.'))>2:
             new_keys_dict[key.split('.',1)[1]] = 1
         else:
