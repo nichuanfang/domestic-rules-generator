@@ -48,7 +48,6 @@ abackup.com
 zhenyunpan.com
 ibreader.com
 avoscloud.com
-leanote.top
 vpsjxw.com
 fabiaoqing.com
 byteacctimg.com
@@ -101,7 +100,6 @@ lc-cn-n1-shared.com
 qianmu.org
 bilibili.com
 sunzhongwei.com
-jd.com
 mdnice.com
 ga-net.com
 linkhaitao.com
@@ -128,7 +126,6 @@ modb.pro
 zeelis.com
 bspapp.com
 crustapps.net
-baiozhuntuixing.com
 tech-ex.com
 dzxwnews.com
 tool.lu
@@ -215,5 +212,4 @@ gogotemplate.com
 tvzhe.com
 kkeji.com
 50bangzh.com
-bendibao.asia
-8sadfjkasd.ssa
+pule.com
