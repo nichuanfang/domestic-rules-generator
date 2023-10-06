@@ -13,8 +13,6 @@ def check_domain(domain):
     except socket.gaierror:
         return False
 
-check_domain('www.baidu.com')
-
 lines = {}
 # 读取/root/code/domestic-rules-generator/routing.txt文件
 with open('/root/code/domestic-rules-generator/routing.txt', 'r+') as generator_r_f:
