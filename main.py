@@ -57,8 +57,6 @@ def filter_block_to_file():
             new_keys_dict[key] = 1
             logging.info(f'域名:{key}可用')
     
-    logging.info(f'new_keys_dict:{new_keys_dict}')
-            
     # 将res_dist的keys写入routing_body.json的rules中
     with open('/root/code/domestic-rules-generator/routing_template_body.json', 'r+') as f:
         str_json = json.loads(f.read())
