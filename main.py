@@ -15,7 +15,7 @@ def check_domain(domain):
 
 lines = {}
 # 读取/root/code/domestic-rules-generator/routing.txt文件
-with open('routing.txt', 'r+') as generator_r_f:
+with open('/root/code/domestic-rules-generator/routing.txt', 'r+') as generator_r_f:
     g_lines = generator_r_f.readlines()
     for line in g_lines:
         if line.strip() != '' and check_domain(line.strip()):
