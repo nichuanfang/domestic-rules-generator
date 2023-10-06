@@ -13,8 +13,7 @@ def check_domain(domain):
     try:
         # 通过whois.com爬取域名信息
         whois_info = subprocess.check_output(['whois', domain]).decode('utf-8')
-        # 如果域名信息中有'No match for'，则域名可用
-        if 'No match for' in whois_info:
+        if 'Domain Name:' in whois_info:
             return True
         else:
             return False
